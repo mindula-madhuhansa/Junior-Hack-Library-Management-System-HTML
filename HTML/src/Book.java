@@ -20,6 +20,18 @@ public class Book {
         return isbn;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
     public void setIsbn(long isbn) {
         this.isbn = isbn;
     }
@@ -65,7 +77,11 @@ public class Book {
         System.out.print("Enter the author");
         String newAuthor = scanner.nextLine();
         setTitle(newAuthor);
+    }
 
+    public void updateBook(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Update an existing book");
     }
 
 }
