@@ -24,11 +24,31 @@ public class BookSQL {
         }
     }
 
-    public void deleteBookByISBN() {
+    public void deleteBookByISBN(Book book) {
+        DBConnection connection = new DBConnection();
+        Connection connectDB = connection.getDBConnection();
+        String query = "DELETE FROM library WHERE isbn ="+book.getIsbn()+" )";
 
+        try {
+            PreparedStatement statement = connectDB.prepareStatement(query);
+            statement.executeUpdate();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-    public void getAllBooks() {
+    public void getAllBooks(Book book) {
+        DBConnection connection = new DBConnection();
+        Connection connectDB = connection.getDBConnection();
+        String query = "SELECT * FROM library WHERE isbn ="+book.getIsbn()+" )";
 
+        try {
+            PreparedStatement statement = connectDB.prepareStatement(query);
+            statement.executeUpdate();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
