@@ -88,7 +88,6 @@ public class Main {
         book.setAuthor(newAuthor);
 
         bookList.add(book);
-        System.out.println( bookList.get(0));
 
 //        BookSQL.insertBook(book);
     }
