@@ -1,11 +1,15 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Main {
+    private ArrayList<Book> bookList = new ArrayList<Book>();
 
     public static void main(String[] args) {
         System.out.println("Welcome to HTML library management system UoK!");
         boolean isLooping = true;
         while (isLooping){
+            System.out.println();
             System.out.println("Please choose an option:");
             System.out.println("1. Add a new book.");
             System.out.println("2. Update an existing book.");
@@ -60,4 +64,6 @@ public class Main {
         }
 
     }
+
+
 }

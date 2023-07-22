@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Book {
@@ -6,6 +7,7 @@ public class Book {
     private String category;
     private String author;
 
+    private ArrayList<Book> bookList = new ArrayList<Book>();
     public Book() {
     }
 
@@ -48,6 +50,11 @@ public class Book {
         this.author = author;
     }
 
+    @Override
+    public String toString() {
+        return getIsbn() + " - " + getTitle() + " - " + getCategory() + " book" + " - " + getAuthor();
+    }
+
     public void addBook(){
         Book book = new Book();
         Scanner scanner = new Scanner(System.in);
@@ -63,21 +70,27 @@ public class Book {
 
         System.out.print("Enter the category: ");
         String newCategory = scanner.nextLine();
-        book.setTitle(newCategory);
+        book.setCategory(newCategory);
 
         System.out.print("Enter the author: ");
         String newAuthor = scanner.nextLine();
-        book.setTitle(newAuthor);
+        book.setAuthor(newAuthor);
+
+        bookList.add(book);
+        System.out.println( bookList.get(0));
 
 //        BookSQL.insertBook(book);
     }
+
 
     public void updateBook(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Update an existing book");
         System.out.print("Enter the ISBN that need to update: ");
         long isbnU = scanner.nextLong();
-        if (getIsbn() == isbnU){
+        System.out.println(bookList.size());
+        for (int i = 0; i < bookList.size(); i++) {
+            if (bookList.contains(isbnU)){
             System.out.println("Update the book: ");
 
             System.out.println("Enter the new Title " + getTitle() + ": ");
@@ -92,7 +105,12 @@ public class Book {
             String updatedAuthor = scanner.nextLine();
             setAuthor(updatedAuthor);
 
+        }else{
+                System.out.println("jhfkdhgjvlkdg;l");
+            }
+
         }
+
 
 
     }
@@ -155,6 +173,7 @@ public class Book {
     }
 
     public void listAllBooks(){
+        System.out.println("List all available books");
         // list all book function
     }
 
