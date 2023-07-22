@@ -4,7 +4,9 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Welcome to HTML library management system UoK!");
-        menuMethod();
+        while (true){
+            menuMethod();
+        }
 
     }
 
@@ -22,16 +24,15 @@ public class Main {
         System.out.print("Enter the number: ");
         int inputNum = scanner.nextInt();
 
+        Book newBook = new Book();
         switch (inputNum) {
             case 1:
-                Book newBook = new Book();
                 newBook.addBook();
-                newBook.toString();
                 break;
-//
-//            case 2:
-//                updateBook();
-//                break;
+
+            case 2:
+                newBook.updateBook();
+                break;
 //
 //            case 3:
 //                removeBook();

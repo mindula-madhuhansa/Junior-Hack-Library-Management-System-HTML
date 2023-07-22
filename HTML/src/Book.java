@@ -48,16 +48,6 @@ public class Book {
         this.author = author;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "isbn=" + isbn +
-                ", title='" + title + '\'' +
-                ", category='" + category + '\'' +
-                ", author='" + author + '\'' +
-                '}';
-    }
-
     public void addBook(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Add a new book");
@@ -82,6 +72,50 @@ public class Book {
     public void updateBook(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Update an existing book");
+        System.out.print("Enter the ISBN that need to update: ");
+        long isbnU = scanner.nextLong();
+        if (getIsbn() == isbnU){
+            System.out.println("Update the book: ");
+
+            System.out.println("Enter the new Title " + getTitle() + ": ");
+            String updatedTitle = scanner.nextLine();
+            setTitle(updatedTitle);
+
+            System.out.println("Enter the new Category " + getCategory() + ": ");
+            String updatedCategory = scanner.nextLine();
+            setCategory(updatedCategory);
+
+            System.out.println("Enter the new Author " + getAuthor() + ": ");
+            String updatedAuthor = scanner.nextLine();
+            setAuthor(updatedAuthor);
+
+        }
+
+
+    }
+
+    public void removeBook(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Remove an existing book");
+
+        System.out.print("Enter the ISBN: ");
+        long isbnRemove = scanner.nextLong();
+        if (getIsbn() == isbnRemove){
+            System.out.println("Are you sure you want to remove this book? (Y/N)");
+            String confirmation = scanner.nextLine();
+            switch (confirmation){
+                case "Y":
+                    // do the removing
+                    break;
+                case "N":
+                    // cancel the process
+                    break;
+                default:
+                    System.out.println("Enter a valid option (Y/N)");
+                    // loop the process
+            }
+        }
+
     }
 
 }
