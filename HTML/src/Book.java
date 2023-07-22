@@ -61,15 +61,15 @@ public class Book {
         String newTitle = scanner.nextLine();
         book.setTitle(newTitle);
 
-        System.out.print("Enter the category");
+        System.out.print("Enter the category: ");
         String newCategory = scanner.nextLine();
         book.setTitle(newCategory);
 
-        System.out.print("Enter the author");
+        System.out.print("Enter the author: ");
         String newAuthor = scanner.nextLine();
         book.setTitle(newAuthor);
 
-        BookSQL.insertBook(book);
+//        BookSQL.insertBook(book);
     }
 
     public void updateBook(){
@@ -115,10 +115,47 @@ public class Book {
                     break;
                 default:
                     System.out.println("Enter a valid option (Y/N)");
-                    // loop the process
+                    break;
             }
         }
 
+    }
+
+    public void lendBook(){
+        Book lendBook = new Book();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Lending a book");
+
+        System.out.print("Enter the ISBN: ");
+        long isbnLend = scanner.nextLong();
+        if (isbnLend == getIsbn()){
+            System.out.println("Can proceed the lending process");
+        }
+        else {
+            System.out.println("This book is not available right now.");
+        }
+
+
+    }
+
+    public void returnBook(){
+        Book returnBook = new Book();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Return a book");
+
+        System.out.print("Enter the ISBN: ");
+        long isbnReturn = scanner.nextLong();
+        if (isbnReturn == getIsbn()){
+            System.out.println("Book returned successfully");
+        }
+        else {
+            System.out.println("Enter a valid ISBN");
+        }
+
+    }
+
+    public void listAllBooks(){
+        // list all book function
     }
 
 }
