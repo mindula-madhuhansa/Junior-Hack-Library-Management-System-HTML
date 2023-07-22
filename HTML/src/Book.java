@@ -49,24 +49,27 @@ public class Book {
     }
 
     public void addBook(){
+        Book book = new Book();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Add a new book");
 
         System.out.print("Enter the ISBN: ");
         String newIsbn = scanner.nextLine();
-        setIsbn(Long.parseLong(newIsbn));
+        book.setIsbn(Long.parseLong(newIsbn));
 
         System.out.print("Enter the title: ");
         String newTitle = scanner.nextLine();
-        setTitle(newTitle);
+        book.setTitle(newTitle);
 
         System.out.print("Enter the category");
         String newCategory = scanner.nextLine();
-        setTitle(newCategory);
+        book.setTitle(newCategory);
 
         System.out.print("Enter the author");
         String newAuthor = scanner.nextLine();
-        setTitle(newAuthor);
+        book.setTitle(newAuthor);
+
+        BookSQL.insertBook(book);
     }
 
     public void updateBook(){
